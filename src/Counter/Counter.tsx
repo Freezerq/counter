@@ -1,45 +1,33 @@
 import React, {useState} from 'react';
 import classes from './Counter.module.css'
+import ButtonCounter from "../Button/ButtonCounter";
 
 
 type CounterPropsType = {
+    isIncDisabled: boolean
+    isResetDisabled: boolean
+    counterMinValue: number
     counter: number
-    setCounter: (value: number) => void
+    onClickReset: () => void
+    onClickInc: () => void
 }
 
-
-
 const Counter = (props: CounterPropsType) => {
-    const [isIncDisabled, setIncDisabled] = useState(false)
-    const [isResetDisabled, setResetDisabled] = useState(true)
-
-    const onClickReset = () => {
-        props.setCounter(0)
-        setResetDisabled(true)
-        setIncDisabled(false)
-    }
 
 
-    const onClickInc = () => {
+    //const finalCounterClassName = props.counter > 4 ? classes.numberRed : classes.number
 
 
-        if (props.counter < 5) {
-            props.setCounter(props.counter + 1)
-            if (props.counter === 4) {
-                setIncDisabled(true)
-            }
-        }
-        setResetDisabled(false)
-    }
-    const finalCounterClassName = props.counter > 4 ?  classes.numberRed : classes.number
     return (
         <div className={classes.wrapper}>
             <div className={classes.counter}>
-                <div className={finalCounterClassName}>{props.counter}</div>
+                <div className={'finalCounterClassName'}>{props.counter}</div>
             </div>
             <div className={classes.buttons}>
-                <button className={classes.incButton} onClick={onClickInc} disabled={isIncDisabled}>inc</button>
-                <button className={classes.resetButton} onClick={onClickReset} disabled={isResetDisabled}>reset</button>
+                <ButtonCounter classname={classes.incButton} onClickInc={props.onClickInc} isIncDisabled={props.isIncDisabled}
+                               title={'inc'}/>
+                <ButtonCounter classname={classes.resetButton} onClickInc={props.onClickReset} isIncDisabled={props.isResetDisabled}
+                               title={'reset'}/>
             </div>
         </div>
     );
