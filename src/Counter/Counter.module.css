@@ -1,0 +1,63 @@
+* {
+    font-size: 30px;
+    border-radius: 10px;
+}
+
+
+.wrapper {
+    width: 250px;
+    height: 250px;
+    border: 2px solid aqua;
+    margin: 0 auto;
+    display: grid;
+    grid-template-rows: 130px 111px;
+    background-color: black;
+}
+
+.counter {
+    background-color: aqua;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.number {
+
+}
+
+
+
+.numberRed {
+    color: red;
+    font-weight: 777;
+    font-size: 40px;
+}
+
+.buttons {
+    margin: 10px;
+    background-color: black;
+    border: 2px solid aqua;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.incButton {
+    background-color: aqua;
+}
+
+.incButton:disabled {
+    opacity: 50;
+    background-color: gray;
+}
+
+.resetButton {
+    background-color: aqua;
+}
+
+.resetButton:disabled {
+    opacity: 50;
+    background-color: gray;
+}
+
